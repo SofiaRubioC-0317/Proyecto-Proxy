@@ -8,10 +8,12 @@ import patronestructuralproxy.model.Cuenta;
 import patronestructuralproxy.proxy.CuentaProxy;
 import patronestructuralproxy.utils.ConsoleColors;
 
+
 public class Main {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Cuenta c = new Cuenta(1, "mitocode", 100);
+        Cuenta c = new Cuenta(1, "JuanilloElPillo", 100);
 
         System.out.println(ConsoleColors.CYAN_BOLD + "=== SELECCIÓN DE BANCO ===" + ConsoleColors.RESET);
         System.out.println(ConsoleColors.YELLOW + "1. Banco A (Estándar, sin comisiones)");
@@ -25,7 +27,11 @@ public class Main {
             System.out.println(ConsoleColors.RED + "Entrada no válida. Usando Banco A por defecto." + ConsoleColors.RESET);
             bancoElegido = 1;
         }
-
+        /*
+         * Se instancia el banco real según la elección del usuario.
+         * Banco A: opera sin comisiones.
+         * Banco B: aplica una comisión de 0.20 en cada depósito.
+         */
         ICuenta bancoReal;
         if (bancoElegido == 2) {
             bancoReal = new CuentaBancoBImpl();
@@ -34,7 +40,7 @@ public class Main {
             bancoReal = new CuentaBancoAImpl();
             System.out.println(ConsoleColors.GREEN + "Ha seleccionado Banco A." + ConsoleColors.RESET);
         }
-
+        // El proxy envuelve al banco real para interceptar y controlar las operaciones
         ICuenta cuentaProxy = new CuentaProxy(bancoReal);
 
         boolean salir = false;

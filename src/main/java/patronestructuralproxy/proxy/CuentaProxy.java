@@ -14,6 +14,7 @@ public class CuentaProxy implements ICuenta  {
         this.cuentaReal = cuentaReal;
     }
 
+    // Intercepta y delega el retiro de dinero al banco real
     @Override
     public Cuenta retirarDinero(Cuenta cuenta, double monto) {
         LOGGER.info(ConsoleColors.PURPLE + "----Cuenta Proxy - Retirar Dinero----" + ConsoleColors.RESET);
@@ -24,7 +25,7 @@ public class CuentaProxy implements ICuenta  {
             return cuentaReal.retirarDinero(cuenta, monto);
         }
     }
-
+    // Intercepta y delega el depósito de dinero al banco real
     @Override
     public Cuenta depositarDinero(Cuenta cuenta, double monto) {
         LOGGER.info(ConsoleColors.PURPLE + "----Cuenta Proxy - Depositar Dinero----" + ConsoleColors.RESET);
@@ -35,7 +36,7 @@ public class CuentaProxy implements ICuenta  {
             return cuentaReal.depositarDinero(cuenta, monto);
         }
     }
-
+    // Intercepta y delega la consulta de saldo al banco real
     @Override
     public void mostrarSaldo(Cuenta cuenta) {
         LOGGER.info(ConsoleColors.PURPLE + "----Cuenta Proxy - Mostrar Dinero----" + ConsoleColors.RESET);
