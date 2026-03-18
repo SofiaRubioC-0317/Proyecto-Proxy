@@ -103,9 +103,17 @@ Ejemplo de interacción:
 2. Depositar Dinero
 3. Retirar Dinero
 4. Salir
+
+=== SELECCIÓN DE BANCO ===
+1. Banco A (Estándar, sin comisiones)
+2. Banco B (Con comisión de 0.20 en depósitos)   
+como son 2 bancos ,el usuario puede elegir el banco CON comisión y SIN comision
+
 Seleccione una opción: 2
 Ingrese el monto a depositar: 200
 Depósito exitoso en Banco B (con comisión). Saldo actual: 300.2
+
+
 
 El proxy registra las acciones realizadas en la consola con mensajes coloreados para distinguir operaciones.
 
